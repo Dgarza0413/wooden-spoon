@@ -1,10 +1,5 @@
-//The core Firebase JS SDK is always required and must be listed first
 src = "https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"
 
-//TODO: Add SDKs for Firebase products that you want to use
-//https://firebase.google.com/docs/web/setup#config-web-app
-
-// Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAQeEaiWH5dLtHD3YVTdGWZOPwYRULkP2c",
     authDomain: "woodenspoon-ebc9d.firebaseapp.com",
@@ -14,7 +9,7 @@ var firebaseConfig = {
     messagingSenderId: "172782486684",
     appId: "1:172782486684:web:5a76102130993a8e"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
@@ -33,17 +28,3 @@ database.ref("/clickcount").on("value",function(snapshot){
     clickCounter = snapshot.val().clickCount;
     $(".counter").text(clickCounter);
 })
-// var comment;
-
-// $(".submit").on("click", function() {
-//     comment = $("#comment").val();
-//     database.ref("/comment").push({
-//         commentUser: comment
-//     })
-// })
-
-// database.ref("/comment").on("value",function(snapshot){
-//     console.log(snapshot.val());
-//     $(".comment-text").append(snapshot.val().commentUser);
-// })
-
