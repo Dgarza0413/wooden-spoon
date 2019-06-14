@@ -1,0 +1,19 @@
+.containerText {
+    width:50%;
+    height:100px;
+    border:3px;
+    border-radius: 5px;
+}
+.click {
+    color:black;
+    font-size:60px;
+}
+.click:hover {
+    color:blue;
+}
+.click:focus {
+    color:blue;
+}
+.counter {
+    font-size: 60px;
+}
