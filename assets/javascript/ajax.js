@@ -79,7 +79,7 @@ $(document).ready(function () {
     $("#submit-value").on("click", function (event) {
         event.preventDefault();
         var searchValue = $("#input").val().trim();
-        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue;
+        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue + "&number=2"
         console.log(searchValue)
 
         $.ajax({
@@ -142,27 +142,54 @@ $(document).ready(function () {
                 cardCookingMinutes.prepend(cardTimeIcon)
             }
 
+            //on click function that calls that infomation on the page
+            $(".expand").on("click", function () {
+                var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + $(card).attr("recipe-id") + "/information"
+                var recipeId = $(card).attr("recipe-id")
+                var title = $(card).find(".card-title").text()
+                var ingredients = $(card).find("recipe-id").val()
+                var servingSize = $(card).find(".servings").text()
+                var cookingTime = $(card).find(".cooking-time").text()
+                console.log($(this).find(".card-title").text())
+                console.log(recipeId)
+                console.log()
+
+
+                $("#recipe-title-modal").text(title)
+                $("#servings-size-modal").text(servingSize)
+                $("#cooking-time-modal").text(cookingTime)
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET",
+                    headers: {
+                        "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                        "X-RapidAPI-Key": apiKey
+                    }
+                }).then(function (response) {
+                    console.log(response)
+                    console.log(response.extendedIngredients)
+                    console.log(response.analyzedInstruction)
+
+                    var ingredientsItem = $("<div>");
+
+
+                    for (var i = 0; i < response.extendedIngredients.length; i++) {
+                        console.log(response.extendedIngredients[i].name)
+                        $("#ingredients-box-modal").append(response.extendedIngredients[i].name)
+                    }
+
+                    for (var i = 0; i < response.analyzedInstructions.length; i++) {
+                        console.log(response.analyzedInstructions[i].steps)
+
+                        for (var j = 0; j < response.analyzedInstructions[i].steps[j].length; j++) {
+                            console.log(response.analyzedInstruction[i].steps[j].step)
+                        }
+                        $("#instructions-box-modal").append(response.analyzedInstructions[i].steps[i].step)
+                    }
+                })
+            });
         })
-    })
-    //on click function that calls that infomation on the page
-    $(".expand").on("click", function () {
-        var title = $(card).find(".card-title")
-        var ingredients = $(this).find("recipe-id").val()
-        var servingSize = $(card).find(".servings").text()
-        var cookingTime = $(card).find(".cooking-time").text()
-        console.log(response.recipes[$(card).attr("array-num")].instructions)
-        console.log(ingredients)
-
-        $(".modal").show()
-
-        $("#recipe-name").text(title)
-        $("#servings").text(servingSize)
-        $("#cooking-time").text(cookingTime)
-
-    });
-
-    $(".close-modal").on("click", function () {
-        $(".modal").hide()
     })
 });
 
