@@ -111,14 +111,17 @@
     <br>
     <div class="recipes">
         <div class="card" style="width: 18rem;">
-            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=953&q=80"
+            <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
                 class="card-img-top image-food" alt="food">
             <div class="card-body">
-                <h5 class="card-title">Egg Dish</h5>
-                <p class="card-text">Hard-boiled eggs on some bread with spinach</p>
+                <h5 class="card-title">Cool Salad</h5>
+                <p class="card-text">This is a salad with vegetables and a slice of pizza it looks like.</p>
             </div>
             <button class="expand">More</button>
+            <button class="expand">Like!</button>
         </div>
+    </div>
+
     </div>
 
     <div class="modal">
@@ -129,6 +132,40 @@
         <p id="cooking-time">Cooking Time</p>
         <button class="close-modal">Close</button>
     </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <i class="fas fa-clock"></i>
+    <i class="fas fa-drumstick-bite"></i>
+
+
+
+
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
