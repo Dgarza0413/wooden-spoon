@@ -1,10 +1,5 @@
 # wooden-spoon
 
-<<<<<<< HEAD
-Team
-David
-This is an additional change vs main backend
-=======
 Team Members
 Dev, Joseph, Luis, David
 
@@ -30,4 +25,3 @@ masonry.js
 Back end (features)
 Firebase - our storage capacity
 Ajax apis - our calling of apis
->>>>>>> 61a04cf3dcb9fe724cf0dd7341fd5bbef05c591e

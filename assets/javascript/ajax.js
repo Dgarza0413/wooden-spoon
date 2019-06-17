@@ -1,14 +1,25 @@
 // This is the ajax page
+<<<<<<< HEAD
 console.log("loaded ajax file");
+=======
+console.log("loaded ajax file")
+>>>>>>> 7ba004fdacc1cfc6a37d1e5f9b87fcd05a3fbac2
 
 //variables needed to pull information from api
 //i will match 
 
 // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/quickAnswer"
+<<<<<<< HEAD
 var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information";
 var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032";
 var limits = '';
 var types = '';
+=======
+var queryURL = " https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1"
+var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
+var limits = ''
+var types = ''
+>>>>>>> 7ba004fdacc1cfc6a37d1e5f9b87fcd05a3fbac2
 
 $.ajax({
     url: queryURL,
@@ -19,25 +30,45 @@ $.ajax({
     }
 }).then(function (response) {
     console.log(response)
-    console.log(response.title)
-    console.log(response.servings)
-    console.log(response.instructions)
-    console.log(response.image)
-    // id will be used to call this particular recipe item
-    console.log(response.id)
+    console.log(response.recipes)
+    console.log(response.recipes[0].title)
 
     // function generateRecipes (){}
     // this function has to be used to generate the recipes on the page
-    for (var i = 0; i < response.length; i++) {
-        console.log(response)
-        $("#title-card").text(response.title)
-        $("#servings-card").text(response.servings)
-        $("#prep-time-card").text(response.cookingMinutes)
-        $("#diet-type-card").text(response.diets[0])
-        $("#recipe-img-card").text(response.images)
-    }
+    for (var i = 0; i < response.recipes.length; i++) {
+        console.log(response.recipes[i])
+        var card = $("<div>")
+        var cardBody = $("<div>")
+        var cardTitle = $("<h5>")
+        var cardServings = $("<p>")
+        var cardCookingMinutes = $("<p>")
+        var cardImage = $("<img>")
+        var cardButton = $("<button>")
 
-    // function generateSingleRecipe (){}
-    // this function has to be used when a reciep is clicked on
+        // adding classes to match bootstrap
+        card.addClass("card")
+        cardBody.addClass("card-body")
+        cardImage.addClass("card-img-top")
+        cardTitle.addClass("card-title")
+        cardServings.addClass("card-text")
+        cardCookingMinutes.addClass("card-text")
+
+        // attr section
+        cardImage.css("width", "18rem")
+        cardImage.attr("src", response.recipes[i].image)
+
+        //display text
+        cardTitle.text(response.recipes[i].title)
+        cardServings.text(response.recipes[i].servings)
+        cardCookingMinutes.text(response.recipes[i].readyInMinutes)
+
+        // append into card structure
+        $(".card-container").append(card)
+        card.append(cardImage)
+        card.append(cardBody)
+        cardBody.append(cardTitle)
+        cardBody.append(cardServings)
+        cardBody.append(cardCookingMinutes)
+    }
 }
 )
