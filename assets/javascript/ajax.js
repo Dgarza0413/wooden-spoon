@@ -2,9 +2,6 @@
 console.log("loaded ajax file")
 
 //variables needed to pull information from api
-//i will match 
-
-// var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/quickAnswer"
 var queryURL = " https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1"
 var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
 var limits = ''
@@ -46,11 +43,12 @@ $.ajax({
         // attr section
         card.css("width", "18rem")
         cardImage.attr("src", response.recipes[i].image)
+        cardTitle.attr("title", response.recipes[i].title)
 
         //display text
         cardTitle.text(response.recipes[i].title)
         cardServings.text("Serving Size: " + response.recipes[i].servings)
-        cardCookingMinutes.text("Cooking Time: " + response.recipes[i].readyInMinutes)
+        cardCookingMinutes.text("Cooking Time: " + response.recipes[i].readyInMinutes + " min")
         cardButton.text("More")
 
         // append into card structure
@@ -64,9 +62,22 @@ $.ajax({
     }
 
     //on click function that calls that infomation on the page
-    $(".card-container").on("click", function () {
+    $(".expand").on("click", function () {
+        // var title = $(this).attr("title")
+        // var image = $(this).val();
+        var title = $(card).find(".card-title").text()
+        var ingredients = $(card).find(".card-title").text()
+
+        // console.log(title)
+        // var card = $(this).parent()[0]
+        console.log($(card).find(".card-title").text())
         //toggle the display of the model
         $(".modal").show()
+        $("#recipe-name").append(title)
+
+    });
+    $(".close-modal").on("click", function () {
+        $(".modal").hide()
     })
 }
 )
@@ -79,6 +90,11 @@ $(window).on("load", function () {
 })
 
 
+
+
+
+
+// Dev's code
 // var queryURL = "https://api.unsplash.com/photos/?client_id=adf1276beb83d0d9e4d4e7d77a4f5853d5864ac74debcbb7c8220c84bea6f7a5";
 
 // $.ajax({
