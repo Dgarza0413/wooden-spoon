@@ -169,3 +169,10 @@ medium taupe: #685044
 */
 
 /* ========== */
+
+.modal{
+    background-color: transparent;
+    position: center;
+    
+    
+}
