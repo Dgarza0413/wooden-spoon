@@ -2,7 +2,7 @@
 console.log("loaded ajax file")
 
 //variables needed to pull information from api
-var queryURL = " https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1"
+var queryURL = " https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=2"
 var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
 var limits = ''
 var types = ''
@@ -15,9 +15,9 @@ $.ajax({
         "X-RapidAPI-Key": apiKey
     }
 }).then(function (response) {
-    console.log(response)
+    // console.log(response)
     console.log(response.recipes)
-    console.log(response.recipes[0].title)
+    // console.log(response.recipes[0].title)
 
     // function generateRecipes (){}
     // this function has to be used to generate the recipes on the page
@@ -46,6 +46,8 @@ $.ajax({
 
         // attr section
         card.css("width", "18rem")
+        card.attr("recipe-id", response.recipes[i].id)
+        card.attr("array-num", [i])
         cardImage.attr("src", response.recipes[i].image)
         cardTitle.attr("title", response.recipes[i].title)
 
@@ -64,22 +66,23 @@ $.ajax({
         cardBody.append(cardServings)
         cardServings.prepend(cardServingsIcon)
         cardBody.append(cardCookingMinutes)
-        cardCookingMinutes.prepend(cardTimingIcon)
+        cardCookingMinutes.prepend(cardTimeIcon)
     }
 
     //on click function that calls that infomation on the page
     $(".expand").on("click", function () {
-        var title = $(card).find(".card-title").text()
-        var ingredients = $(card).find(".ingredients").text()
+        var title = $(card).find(".card-title")
+        var ingredients = $(this).find("recipe-id").val()
         var servingSize = $(card).find(".servings").text()
         var cookingTime = $(card).find(".cooking-time").text()
-        console.log($(card).find(".card-title").text())
+        console.log(response.recipes[$(card).attr("array-num")].instructions)
+        console.log(ingredients)
 
         $(".modal").show()
 
-        $("#recipe-name").append(title)
-        $("#servings").append(servingSize)
-        $("#cooking-time").append(cookingTime)
+        $("#recipe-name").text(title)
+        $("#servings").text(servingSize)
+        $("#cooking-time").text(cookingTime)
 
     });
     $(".close-modal").on("click", function () {
