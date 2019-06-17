@@ -121,6 +121,8 @@ $(document).ready(function () {
                 card.attr("array-num", [i])
                 cardImage.attr("src", "https://spoonacular.com/recipeImages/" + response.results[i].image)
                 cardTitle.attr("title", response.results[i].title)
+                cardButton.attr("data-toggle", "modal")
+                cardButton.attr("data-target", "#exampleModalCenter")
 
                 //display text
                 cardTitle.text(response.results[i].title)
