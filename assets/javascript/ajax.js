@@ -30,15 +30,19 @@ $.ajax({
         var cardCookingMinutes = $("<p>")
         var cardImage = $("<img>")
         var cardButton = $("<button>")
+        var cardTimeIcon = $("<i>")
+        var cardServingsIcon = $("<i>")
 
         // adding classes to match bootstrap
         card.addClass("card")
         cardBody.addClass("card-body")
         cardImage.addClass("card-img-top")
         cardTitle.addClass("card-title")
-        cardServings.addClass("card-text")
-        cardCookingMinutes.addClass("card-text")
+        cardServings.addClass("card-text servings")
+        cardCookingMinutes.addClass("card-text cooking-time")
         cardButton.addClass("expand")
+        cardTimeIcon.addClass("fas fa-clock")
+        cardServingsIcon.addClass("fas fa-utensils")
 
         // attr section
         card.css("width", "18rem")
@@ -47,8 +51,8 @@ $.ajax({
 
         //display text
         cardTitle.text(response.recipes[i].title)
-        cardServings.text("Serving Size: " + response.recipes[i].servings)
-        cardCookingMinutes.text("Cooking Time: " + response.recipes[i].readyInMinutes + " min")
+        cardServings.text(" Serving Size: " + response.recipes[i].servings)
+        cardCookingMinutes.text(" Cooking Time: " + response.recipes[i].readyInMinutes + " min")
         cardButton.text("More")
 
         // append into card structure
@@ -58,22 +62,24 @@ $.ajax({
         card.append(cardButton)
         cardBody.append(cardTitle)
         cardBody.append(cardServings)
+        cardServings.prepend(cardServingsIcon)
         cardBody.append(cardCookingMinutes)
+        cardCookingMinutes.prepend(cardTimingIcon)
     }
 
     //on click function that calls that infomation on the page
     $(".expand").on("click", function () {
-        // var title = $(this).attr("title")
-        // var image = $(this).val();
         var title = $(card).find(".card-title").text()
-        var ingredients = $(card).find(".card-title").text()
-
-        // console.log(title)
-        // var card = $(this).parent()[0]
+        var ingredients = $(card).find(".ingredients").text()
+        var servingSize = $(card).find(".servings").text()
+        var cookingTime = $(card).find(".cooking-time").text()
         console.log($(card).find(".card-title").text())
-        //toggle the display of the model
+
         $(".modal").show()
+
         $("#recipe-name").append(title)
+        $("#servings").append(servingSize)
+        $("#cooking-time").append(cookingTime)
 
     });
     $(".close-modal").on("click", function () {
