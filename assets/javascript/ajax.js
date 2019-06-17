@@ -1,25 +1,14 @@
 // This is the ajax page
-<<<<<<< HEAD
-console.log("loaded ajax file");
-=======
 console.log("loaded ajax file")
->>>>>>> 7ba004fdacc1cfc6a37d1e5f9b87fcd05a3fbac2
 
 //variables needed to pull information from api
 //i will match 
 
 // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/quickAnswer"
-<<<<<<< HEAD
-var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information";
-var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032";
-var limits = '';
-var types = '';
-=======
 var queryURL = " https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1"
 var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
 var limits = ''
 var types = ''
->>>>>>> 7ba004fdacc1cfc6a37d1e5f9b87fcd05a3fbac2
 
 $.ajax({
     url: queryURL,
@@ -52,23 +41,31 @@ $.ajax({
         cardTitle.addClass("card-title")
         cardServings.addClass("card-text")
         cardCookingMinutes.addClass("card-text")
+        cardButton.addClass("click")
 
         // attr section
-        cardImage.css("width", "18rem")
+        card.css("width", "18rem")
         cardImage.attr("src", response.recipes[i].image)
 
         //display text
-        cardTitle.text(response.recipes[i].title)
-        cardServings.text(response.recipes[i].servings)
-        cardCookingMinutes.text(response.recipes[i].readyInMinutes)
+        cardTitle.text("Title: " + response.recipes[i].title)
+        cardServings.text("Serving Size: " + response.recipes[i].servings)
+        cardCookingMinutes.text("Cooking Time: " + response.recipes[i].readyInMinutes)
 
         // append into card structure
         $(".card-container").append(card)
         card.append(cardImage)
         card.append(cardBody)
+        card.append(cardButton)
         cardBody.append(cardTitle)
         cardBody.append(cardServings)
         cardBody.append(cardCookingMinutes)
     }
+
+    //on click function that calls that infomation on the page
+    $(".card-container").on("click", function () {
+        //toggle the display of the model
+        $(".modal").show()
+    })
 }
 )
