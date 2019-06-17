@@ -1,105 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- jquery link -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-
-    <!-- firebase script -->
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
-    <!-- bootstrap link and font awesome link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-   <script src="https://kit.fontawesome.com/3b074a4195.js"></script>
-
-    <title>Wooden Spoon</title>
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3b074a4195.js"></script>
+    <style>
+        .flip-card {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><i class="fas fa-egg"></i> wooden spoon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<div class="container">
-<!-- Logo with title of the page -->
-        <div class="row">
-            <div class="col-lg-6">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque velit ipsum neque aliquam, illum vel dolor nulla tenetur dolores provident quia repellendus vitae enim fugiat voluptatibus nobis exercitationem, officia totam!</div>
-<!-- Diet button -->
-            <div class="col-lg-6">
-                    <div class="btn-group">
-                            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Diet
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-<!-- Search bar -->
-                    <form class="navbar-form navbar-right" action="/action_page.php">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-            </div>
+                </li> -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <!--float-right-->
+                <input class="form-control mr-sm-2" type="search" placeholder="hungry?" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
-<!-- carousel -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12"> 
-                    <div id="demo" class="carousel slide" data-ride="carousel">
-
-                            <!-- Indicators -->
-                            <ul class="carousel-indicators">
-                              <li data-target="#demo" data-slide-to="0" class="active"></li>
-                              <li data-target="#demo" data-slide-to="1"></li>
-                              <li data-target="#demo" data-slide-to="2"></li>
-                            </ul>
-                          
-                            <!-- The slideshow -->
-                            <div class="carousel-inner">
-                                <div class="col-md-4">
-                                    <div class="carousel-item active">
-                                        <img src="la.jpg" alt="Los Angeles">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="carousel-item active">
-                                        <img src="chicago.jpg" alt="Chicago">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="carousel-item active">
-                                        <img src="ny.jpg" alt="New York">
-                                    </div>
-                                </div>
-                            </div>
-                          
-                            <!-- Left and right controls -->
-                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                              <span class="carousel-control-prev-icon"></span>
-                            </a>
-                            <a class="carousel-control-next" href="#demo" data-slide="next">
-                              <span class="carousel-control-next-icon"></span>
-                            </a>
-                          
+    </nav>
+    <br>
+    <div class="bd-example">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+                        class="d-block w-100" alt="pizza">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pizza</h5>
+                        <!-- <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2076&q=80"
+                        class="d-block w-100" alt="rice">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Rice</h5>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+                        class="d-block w-100" alt="soup">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Soup with vegetables</h5>
+                        <!-- <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
                     </div>
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-<!--Filtered Results  -->
-    <div class="container">
-
     </div>
+    <br>
+    <hr class="breakLine">
+    <br>
+    <div class="recipes">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Cool Salad</h5>
+                <p class="card-text">This is a salad with vegetables and a slice of pizza it looks like.</p>
+            </div>
+            <button class="expand">More</button>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Vegetables</h5>
+                <p class="card-text">Prety layout</p>
+            </div>
+            <button class="expand">More</button>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=953&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Egg Dish</h5>
+                <p class="card-text">Hard-boiled eggs on some bread with spinach</p>
+            </div>
+            <button class="expand">More</button>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Pancakes</h5>
+                <p class="card-text">Pancakes with orange slices and blueberries.</p>
+            </div>
+            <button class="expand">More</button>
+        </div> 
+    </div>     
 
-</div>
 
-<script type=text/javascript href="assets/javascript/app.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
+    <script src="assets/javascript/ajax.js"></script>
+    <script src="assets/javascript/database.js"></script>
 </body>
+
 </html>

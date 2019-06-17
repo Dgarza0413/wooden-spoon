@@ -1,0 +1,171 @@
+.containerText {
+    width:50%;
+    height:100px;
+    border:3px;
+    border-radius: 5px;
+}
+.click {
+    color:black;
+    font-size:60px;
+}
+.click:hover {
+    color:blue;
+}
+.click:focus {
+    color:blue;
+}
+.counter {
+    font-size: 60px;
+}
+
+/* modal */
+.background {
+    width: 550px;
+    height:400px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: url("background.jpg") no-repeat center center fixed; 
+    background-size: cover;
+
+}
+.model {
+    /* width: 540px;
+    height: 390px;
+    padding: 5px; */
+    margin: 5px;
+    
+    position: relative;
+    top: 5px;
+}
+.model img{
+    width: 50%;
+    height: 50%;
+    float: left;
+}
+.model h1{
+    /* position: absolute;
+        top: 0;
+        right: 5px; */
+    float: left;
+    text-align: left;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+}
+.model p{
+    clear: both;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+}
+
+/* ========= */
+
+body {
+    background-color: #685044!important;
+}
+
+.card {
+    margin:10px;
+    border-radius: 20px;
+    flex-grow: 1;
+    float:left;
+    
+}
+.expand {
+    background-color:#F9DEC9;
+    color:black;
+    border:0px;
+}
+.expand:hover {
+    background-color: #99B2DD;
+    transition: 0.2s;
+}
+.expand:active {
+    background-color: #685044;
+    transition:0.2s;
+    color:#685044;
+}
+.bd-example {
+    max-width: 60%;
+    margin:auto;
+    border-radius: 30px;
+}
+.card-body {
+    background-color: #F9DEC9;
+}
+.navbar-brand {
+    font-family: 'Indie Flower', cursive;
+}
+
+
+.w-100 {
+    border-radius: 15px;
+}
+
+.breakLine {
+    background-color:#F9DEC9;
+    max-width: 980px;
+}
+.recipes {
+    max-width: 980px;
+    margin: 0 auto;
+
+}
+
+.flip-card {
+    background-color: transparent;
+    /* width: 300px;
+    height: 300px; */
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  
+
+
+/*
+charcoal: #3A405A
+unbleached silk: #F9DEC9
+pale cerulean: #99B2DD
+granny smith apple: #A2E8A3
+medium taupe: #685044
+*/
+
+/* ========== */
