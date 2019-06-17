@@ -5,7 +5,7 @@ console.log("loaded ajax file")
 //i will match 
 
 // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/quickAnswer"
-// var queryURL = " https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1"
+var queryURL = " https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1"
 var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
 var limits = ''
 var types = ''
@@ -28,10 +28,11 @@ $.ajax({
         console.log(response.recipes[i])
         var card = $("<div>")
         var cardBody = $("<div>")
-        var cardTitle = $("<div>")
-        var cardServings = $("<div>")
-        var cardCookingMinutes = $("<div>")
+        var cardTitle = $("<h5>")
+        var cardServings = $("<p>")
+        var cardCookingMinutes = $("<p>")
         var cardImage = $("<img>")
+        var cardButton = $("<button>")
 
         // adding classes to match bootstrap
         card.addClass("card")
@@ -42,7 +43,7 @@ $.ajax({
         cardCookingMinutes.addClass("card-text")
 
         // attr section
-        cardImage.attr("width", "18rem")
+        cardImage.css("width", "18rem")
         cardImage.attr("src", response.recipes[i].image)
 
         //display text
@@ -57,18 +58,6 @@ $.ajax({
         cardBody.append(cardTitle)
         cardBody.append(cardServings)
         cardBody.append(cardCookingMinutes)
-
-
-
-
-        // $("#title-card").text(response.title)
-        // $("#servings-card").text(response.servings)
-        // $("#prep-time-card").text(response.cookingMinutes)
-        // $("#diet-type-card").text(response.diets[0])
-        // $("#recipe-img-card").text(response.images)
     }
-
-    // function generateSingleRecipe (){}
-    // this function has to be used when a reciep is clicked on
 }
 )
