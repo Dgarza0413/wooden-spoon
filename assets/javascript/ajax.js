@@ -100,20 +100,26 @@ $(document).ready(function () {
                 var cardServings = $("<p>")
                 var cardCookingMinutes = $("<p>")
                 var cardImage = $("<img>")
+                var cardImageContainer = $("<div>")
                 var cardButton = $("<button>")
                 var cardTimeIcon = $("<i>")
                 var cardServingsIcon = $("<i>")
+                var cardHeartIcon = $("<i>")
 
                 // adding classes to match bootstrap
                 card.addClass("card")
                 cardBody.addClass("card-body")
                 cardImage.addClass("card-img-top")
+                cardImageContainer.addClass("img-container")
                 cardTitle.addClass("card-title")
                 cardServings.addClass("card-text servings")
                 cardCookingMinutes.addClass("card-text cooking-time")
                 cardButton.addClass("expand")
+
+                // Icons from font awesome
                 cardTimeIcon.addClass("fas fa-clock")
                 cardServingsIcon.addClass("fas fa-utensils")
+                cardHeartIcon.addClass("far fa-heart fa-2x")
 
                 // attr section
                 card.css("width", "18rem")
@@ -132,9 +138,12 @@ $(document).ready(function () {
 
                 // append into card structure
                 $(".recipes").append(card)
-                card.append(cardImage)
+                // card.append(cardImage)
+                card.append(cardImageContainer)
                 card.append(cardBody)
                 card.append(cardButton)
+                cardImageContainer.append(cardImage)
+                cardImageContainer.append(cardHeartIcon)
                 cardBody.append(cardTitle)
                 cardBody.append(cardServings)
                 cardServings.prepend(cardServingsIcon)
@@ -167,13 +176,12 @@ $(document).ready(function () {
                         "X-RapidAPI-Key": apiKey
                     }
                 }).then(function (response) {
-                    console.log(response)
-                    console.log(response.extendedIngredients)
-                    console.log(response.analyzedInstruction)
-
+                    // console.log(response)
+                    // console.log(response.extendedIngredients)
+                    // console.log(response.analyzedInstruction)
 
                     for (var i = 0; i < response.extendedIngredients.length; i++) {
-                        console.log(response.extendedIngredients[i].name)
+                        // console.log(response.extendedIngredients[i].name)
                         var ingredientsItem = $("<div>");
                         ingredientsItem.attr("ingredient-name", response.extendedIngredients[i].name)
                         $("#ingredients-box-modal").append(response.extendedIngredients[i].name)
