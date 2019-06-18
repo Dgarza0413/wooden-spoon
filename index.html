@@ -61,6 +61,14 @@
         .cooking-ware-sub-modal {
             column-count: 3;
         }
+
+        #img-resize {
+            text-align: center;
+        }
+
+        #img-resize img {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -174,14 +182,14 @@
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="recipe-title-modal">Modal title</h5>
+                    <h5 class="modal-title" id="recipe-title-modal"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="servings-size-modal"></div>
                     <div id="img-resize"></div>
+                    <div id="servings-size-modal"></div>
                     <div id="cooking-time-modal"></div>
                     <div id="cooking-instructions-modal"></div>
                     <div id="cooking-ware-box-modal">

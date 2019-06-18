@@ -156,23 +156,10 @@ $(document).ready(function () {
 
     //on click function that calls that infomation on the page
     $(document).on("click", ".expand", function () {
-
-
         var card = this
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + $(card).attr("recipe-id") + "/information"
-        var recipeId = $(card).attr("recipe-id")
-        var title = $(card).find(".card-title").text()
-        var titleModal = $(this).response
-        var ingredients = $(card).find("recipe-id").val()
-        var servingSize = $(card).find(".servings").text()
-        var cookingTime = $(card).find(".cooking-time").text()
         console.log($(this).find(".card-title").text())
-        console.log(recipeId)
         console.log(card)
-
-        $("#recipe-title-modal").append(title)
-        $("#servings-size-modal").append(servingSize)
-        $("#cooking-time-modal").append(cookingTime)
 
         $.ajax({
             url: queryURL,
@@ -182,13 +169,21 @@ $(document).ready(function () {
                 "X-RapidAPI-Key": apiKey
             }
         }).then(function (response) {
+            var imgDisplay = $("<img>")
+            imgDisplay.attr("src", response.image)
             $(".ingredients-sub-modal").empty()
             $(".instructions-sub-modal").empty()
             $(".cooking-ware-sub-modal").empty()
-            console.log(response)
-            // console.log(response.extendedIngredients)
-            // console.log(response.analyzedInstruction)
+            $("#recipe-title-modal").empty()
+            $("#cooking-time-modal").empty()
+            $("#img-resize").empty()
 
+            $("#recipe-title-modal").append(response.title)
+            $("#servings-size-modal").append("<h5>Serving Size: </h5>" + response.servings)
+            $("#cooking-time-modal").append("<h5>Cooking & Prep time: </h5>" + response.readyInMinutes + "min")
+            $("#img-resize").append(imgDisplay)
+
+            console.log(response)
 
             for (var i = 0; i < response.extendedIngredients.length; i++) {
                 // console.log(response.extendedIngredients[i].name)
