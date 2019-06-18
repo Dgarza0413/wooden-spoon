@@ -18,13 +18,13 @@ var clickCounter = 0;
 
 $(".click").on("click", function () {
     clickCounter++;
-    database.ref("/clickcount").set({
+    database.ref("clickcount").set({
         clickCount: clickCounter
     })
     console.log(clickCounter);
 })
 
-database.ref("/clickcount").on("value",function(snapshot){
+database.ref("clickcount").on("value", function (snapshot) {
     clickCounter = snapshot.val().clickCount;
     $(".counter").text(clickCounter);
 })
