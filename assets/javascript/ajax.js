@@ -158,21 +158,19 @@ $(document).ready(function () {
 
     //on click function that calls that infomation on the page
     $(document).on("click", ".expand", function () {
+
+
         var card = this
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + $(card).attr("recipe-id") + "/information"
         var recipeId = $(card).attr("recipe-id")
         var title = $(card).find(".card-title").text()
+        var titleModal = $(this).response.
         var ingredients = $(card).find("recipe-id").val()
         var servingSize = $(card).find(".servings").text()
         var cookingTime = $(card).find(".cooking-time").text()
         console.log($(this).find(".card-title").text())
         console.log(recipeId)
         console.log(card)
-
-
-        $("#recipe-title-modal").text(title)
-        $("#servings-size-modal").text(servingSize)
-        $("#cooking-time-modal").text(cookingTime)
 
         $.ajax({
             url: queryURL,
@@ -182,7 +180,9 @@ $(document).ready(function () {
                 "X-RapidAPI-Key": apiKey
             }
         }).then(function (response) {
-            // console.log(response)
+            $(".ingredients-sub-modal").empty()
+            $(".instructions-sub-modal").empty()
+            console.log(response)
             // console.log(response.extendedIngredients)
             // console.log(response.analyzedInstruction)
 
@@ -191,10 +191,14 @@ $(document).ready(function () {
                 var ingredientsItem = $("<p>");
 
                 ingredientsItem.attr("ingredient-name", response.extendedIngredients[i].name)
-
                 ingredientsItem.text(response.extendedIngredients[i].name)
 
                 $(".ingredients-sub-modal").append(ingredientsItem)
+
+
+                $("#recipe-title-modal").append(title)
+                $("#servings-size-modal").append(servingSize)
+                $("#cooking-time-modal").append(cookingTime)
             }
 
             for (var i = 0; i < response.analyzedInstructions.length; i++) {
@@ -205,7 +209,7 @@ $(document).ready(function () {
 
 
                     console.log(instructionsItem)
-                    $("#instructions-box-modal").append(instructionsItem)
+                    $(".instructions-sub-modal").append(instructionsItem)
                 }
             }
         })
