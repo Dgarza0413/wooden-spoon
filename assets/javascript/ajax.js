@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // This is the ajax page
 console.log("loaded ajax file")
 
@@ -106,7 +105,6 @@ $.ajax({
     });
     $(".close-modal").on("click", function () {
         $(".modal").hide()
-=======
 $(document).ready(function () {
     // This is the ajax page
     console.log("loaded ajax file")
@@ -297,7 +295,6 @@ $(document).ready(function () {
                 })
             });
         })
->>>>>>> acfd96a23cd81aa1eac274fcdc73da872cf02a28
     })
 });
 
