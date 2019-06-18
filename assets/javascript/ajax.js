@@ -151,8 +151,6 @@ $(document).ready(function () {
                 cardBody.append(cardCookingMinutes)
                 cardCookingMinutes.prepend(cardTimeIcon)
             }
-
-
         })
     })
 
@@ -186,6 +184,7 @@ $(document).ready(function () {
         }).then(function (response) {
             $(".ingredients-sub-modal").empty()
             $(".instructions-sub-modal").empty()
+            $(".cooking-ware-sub-modal").empty()
             console.log(response)
             // console.log(response.extendedIngredients)
             // console.log(response.analyzedInstruction)
@@ -194,14 +193,29 @@ $(document).ready(function () {
             for (var i = 0; i < response.extendedIngredients.length; i++) {
                 // console.log(response.extendedIngredients[i].name)
                 var ingredientsItem = $("<p>");
+                var ingredientsAmount = $("<span>")
+                var ingredientsUnit = $("<span>")
+                var ingredientsContainer = $("<div>")
+                var measurementsContainer = $("<span>")
+
+                ingredientsContainer.addClass("ingredients-container")
+                measurementsContainer.addClass("measurements-container")
 
                 ingredientsItem.attr("ingredient-name", response.extendedIngredients[i].name)
                 ingredientsItem.text(response.extendedIngredients[i].name)
 
-                $(".ingredients-sub-modal").append(ingredientsItem)
+                ingredientsAmount.attr("ingredient-amount", response.extendedIngredients[i].amount)
+                ingredientsAmount.text(response.extendedIngredients[i].amount)
 
+                ingredientsUnit.attr("ingredient-unit", response.extendedIngredients[i].unit)
+                ingredientsUnit.text(response.extendedIngredients[i].unit)
 
+                $(".ingredients-sub-modal").append(ingredientsContainer)
 
+                ingredientsContainer.append(ingredientsItem)
+                ingredientsContainer.append(measurementsContainer)
+                measurementsContainer.append(ingredientsAmount)
+                measurementsContainer.append(ingredientsUnit)
             }
 
             for (var i = 0; i < response.analyzedInstructions.length; i++) {
@@ -220,22 +234,17 @@ $(document).ready(function () {
             for (var i = 0; i < response.analyzedInstructions.length; i++) {
                 for (var j = 0; j < response.analyzedInstructions[i].steps.length; j++) {
                     for (var k = 0; k < response.analyzedInstructions[i].steps[j].equipment.length; k++) {
-                        // for (var l = 0; l < response.analyzedInstructions[i].steps[j].equipment[k].name.length; i++) {
                         var equipName = response.analyzedInstructions[i].steps[j].equipment[k].name;
                         console.log(equipName);
                         if (!equipmentArr.includes(equipName)) {
                             equipmentArr.push(equipName);
-
                             console.log(response.analyzedInstructions[i].steps[j].equipment.length)
                             var cookingWareItem = $("<p>");
                             var cookingWareName = response.analyzedInstructions[i].steps[j].equipment[k].name
                             cookingWareItem.attr("cooking-ware", cookingWareName)
                             cookingWareItem.text(cookingWareName)
-                            $(".cooking-ware-sub-modal").append(response.analyzedInstructions[i].steps[j].equipment[k].name)
+                            $(".cooking-ware-sub-modal").append(cookingWareItem)
                         }
-
-                        // analyzedInstructions[""0""].steps[""0""].equipment[""0""].name
-                        // }
                     }
                 }
             }
