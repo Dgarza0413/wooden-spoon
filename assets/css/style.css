@@ -18,10 +18,6 @@
     font-size: 60px;
 }
 
-.heart-clicked {
-    color: red !important;
-}
-
 /* modal */
 .background {
     width: 550px;
@@ -177,7 +173,6 @@ medium taupe: #685044
 .modal{
     background-color: transparent;
     position: center;
-
+    
     
 }
-
