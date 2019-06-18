@@ -128,6 +128,7 @@ $(document).ready(function () {
                 cardImage.attr("src", "https://spoonacular.com/recipeImages/" + response.results[i].image)
                 cardTitle.attr("title", response.results[i].title)
                 cardButton.attr("data-toggle", "modal")
+                cardButton.attr("recipe-id", response.results[i].id)
                 cardButton.attr("data-target", "#exampleModalCenter")
 
                 //display text
@@ -151,52 +152,64 @@ $(document).ready(function () {
                 cardCookingMinutes.prepend(cardTimeIcon)
             }
 
-            //on click function that calls that infomation on the page
-            $(".expand").on("click", function () {
-                var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + $(card).attr("recipe-id") + "/information"
-                var recipeId = $(card).attr("recipe-id")
-                var title = $(card).find(".card-title").text()
-                var ingredients = $(card).find("recipe-id").val()
-                var servingSize = $(card).find(".servings").text()
-                var cookingTime = $(card).find(".cooking-time").text()
-                console.log($(this).find(".card-title").text())
-                console.log(recipeId)
-                console.log()
 
-
-                $("#recipe-title-modal").text(title)
-                $("#servings-size-modal").text(servingSize)
-                $("#cooking-time-modal").text(cookingTime)
-
-                $.ajax({
-                    url: queryURL,
-                    method: "GET",
-                    headers: {
-                        "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                        "X-RapidAPI-Key": apiKey
-                    }
-                }).then(function (response) {
-                    // console.log(response)
-                    // console.log(response.extendedIngredients)
-                    // console.log(response.analyzedInstruction)
-
-                    for (var i = 0; i < response.extendedIngredients.length; i++) {
-                        // console.log(response.extendedIngredients[i].name)
-                        var ingredientsItem = $("<div>");
-                        ingredientsItem.attr("ingredient-name", response.extendedIngredients[i].name)
-                        $("#ingredients-box-modal").append(response.extendedIngredients[i].name)
-                    }
-
-                    for (var i = 0; i < response.analyzedInstructions.length; i++) {
-                        for (var j = 0; j < response.analyzedInstructions[i].steps.length; j++) {
-                            console.log(response.analyzedInstructions[i].steps[j].step)
-                            $("#instructions-box-modal").append(response.analyzedInstructions[i].steps[j].step)
-                        }
-                    }
-                })
-            });
         })
     })
+
+    //on click function that calls that infomation on the page
+    $(document).on("click", ".expand", function () {
+        var card = this
+        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + $(card).attr("recipe-id") + "/information"
+        var recipeId = $(card).attr("recipe-id")
+        var title = $(card).find(".card-title").text()
+        var ingredients = $(card).find("recipe-id").val()
+        var servingSize = $(card).find(".servings").text()
+        var cookingTime = $(card).find(".cooking-time").text()
+        console.log($(this).find(".card-title").text())
+        console.log(recipeId)
+        console.log(card)
+
+
+        $("#recipe-title-modal").text(title)
+        $("#servings-size-modal").text(servingSize)
+        $("#cooking-time-modal").text(cookingTime)
+
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "X-RapidAPI-Key": apiKey
+            }
+        }).then(function (response) {
+            // console.log(response)
+            // console.log(response.extendedIngredients)
+            // console.log(response.analyzedInstruction)
+
+            for (var i = 0; i < response.extendedIngredients.length; i++) {
+                // console.log(response.extendedIngredients[i].name)
+                var ingredientsItem = $("<p>");
+
+                ingredientsItem.attr("ingredient-name", response.extendedIngredients[i].name)
+
+                ingredientsItem.text(response.extendedIngredients[i].name)
+
+                $(".ingredients-sub-modal").append(ingredientsItem)
+            }
+
+            for (var i = 0; i < response.analyzedInstructions.length; i++) {
+                for (var j = 0; j < response.analyzedInstructions[i].steps.length; j++) {
+                    var instructionsItem = $("<p>");
+                    instructionsItem.attr("instructions-item", response.analyzedInstructions[i].steps[j].step)
+                    instructionsItem.text(response.analyzedInstructions[i].steps[j].step)
+
+
+                    console.log(instructionsItem)
+                    $("#instructions-box-modal").append(instructionsItem)
+                }
+            }
+        })
+    });
 });
 
 
