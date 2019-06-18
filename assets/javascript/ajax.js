@@ -214,7 +214,18 @@ $(document).ready(function () {
             }
         })
     });
+    var timesClicked= 0;
+
+    $("#timesClicked").on("click", function(){
+        console.log("click")
+    })
+    
 });
+
+// Fill the heart red when clicked
+
+
+
 
 
 
