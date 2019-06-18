@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -17,15 +17,11 @@
             width: 300px;
             height: 300px;
         }
-
-        .model {
-            display: none;
-        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="#"><i class="fas fa-egg"></i> wooden spoon</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +51,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <!--float-right-->
-                <input class="form-control mr-sm-2" type="search" placeholder="hungry?" aria-label="Search">
+                <input class="form-control mr-sm-2" type="text" placeholder="hungry?" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
@@ -107,56 +103,8 @@
     <br>
     <hr class="breakLine">
     <br>
-    <div class="recipes">
-        <div class="card" style="width: 18rem;">
-            <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-                class="card-img-top image-food" alt="food">
-            <div class="card-body">
-                <h5 class="card-title">Cool Salad</h5>
-                <p class="card-text">This is a salad with vegetables and a slice of pizza it looks like.</p>
-            </div>
-            <button class="expand">More</button>
-            <button class="expand"><i class="far fa-thumbs-up"></i></button>
-            <button class="expand"><i class="fas fa-heart"></i></button>
-            <!-- <button id="favorites" class="expand"><i class="far fa-heart" id="heart-icon" data-status="non-favorited"></i></button> -->
-        </div>
-    </div>     
-
+    <div class="grid">
     </div>
-
-    <div class="modal">
-        <h1 id="recipe-name">food</h1>
-        <p id="ingredients-box">ingredients</p>
-        <p id="steps-box">Instructions</p>
-        <p id="servings"></p>
-        <p id="cooking-time">Cooking Time</p>
-        <button class="close-modal">Close</button>
-    </div>
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-            Launch demo modal
-          </button>
-          
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
 
 
 
@@ -171,9 +119,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -181,9 +126,47 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
-    <script src="assets/javascript/ajax.js"></script>
-    <script src="assets/javascript/database.js"></script>
+    <script src="logic.js"></script>
 
 </body>
 
 </html>
+
+
+
+<!-- <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Cool Salad</h5>
+                <p class="card-text">This is a salad with vegetables and a slice of pizza it looks like.</p>
+            </div>
+            <button class="expand">More</button>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Vegetables</h5>
+                <p class="card-text">Prety layout</p>
+            </div>
+            <button class="expand">More</button>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=953&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Egg Dish</h5>
+                <p class="card-text">Hard-boiled eggs on some bread with spinach</p>
+            </div>
+            <button class="expand">More</button>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+                class="card-img-top image-food" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">Pancakes</h5>
+                <p class="card-text">Pancakes with orange slices and blueberries.</p>
+            </div>
+            <button class="expand">More</button>
+        </div> -->
