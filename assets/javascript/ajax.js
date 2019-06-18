@@ -171,21 +171,19 @@ $(document).ready(function () {
                     console.log(response.extendedIngredients)
                     console.log(response.analyzedInstruction)
 
-                    var ingredientsItem = $("<div>");
-
 
                     for (var i = 0; i < response.extendedIngredients.length; i++) {
                         console.log(response.extendedIngredients[i].name)
+                        var ingredientsItem = $("<div>");
+                        ingredientsItem.attr("ingredient-name", response.extendedIngredients[i].name)
                         $("#ingredients-box-modal").append(response.extendedIngredients[i].name)
                     }
 
                     for (var i = 0; i < response.analyzedInstructions.length; i++) {
-                        console.log(response.analyzedInstructions[i].steps)
-
-                        for (var j = 0; j < response.analyzedInstructions[i].steps[j].length; j++) {
-                            console.log(response.analyzedInstruction[i].steps[j].step)
+                        for (var j = 0; j < response.analyzedInstructions[i].steps.length; j++) {
+                            console.log(response.analyzedInstructions[i].steps[j].step)
+                            $("#instructions-box-modal").append(response.analyzedInstructions[i].steps[j].step)
                         }
-                        $("#instructions-box-modal").append(response.analyzedInstructions[i].steps[i].step)
                     }
                 })
             });
