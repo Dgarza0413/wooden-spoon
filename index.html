@@ -12,6 +12,7 @@
     <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3b074a4195.js"></script>
+    <script src="assets/javascript/masonry.min.js"></script>
     <style>
         .flip-card {
             width: 300px;
@@ -19,6 +20,25 @@
         }
         .model {
             display: none;
+        }
+
+        .img-container {
+            position: relative;
+        }
+
+        .fa-heart {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            color: red;
+        }
+
+        /* .fas-heart {
+            display: none;
+        } */
+
+        .ingredients-sub-modal {
+            column-count: 3;
         }
     </style>
 </head>
@@ -110,13 +130,16 @@
     <br>
     <div class="recipes">
         <div class="card" style="width: 18rem;">
-            <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-                class="card-img-top image-food" alt="food">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+                    class="card-img-top image-food" alt="food">
+                <span><i class="far fa-heart fa-2x"></i></span>
+                <!-- <span><i class="fas fa-heart fa-2x"></i></span> -->
+            </div>
             <div class="card-body">
                 <h5 class="card-title">Cool Salad</h5>
                 <p class="card-text">This is a salad with vegetables and a slice of pizza it looks like.</p>
             </div>
-            <span><i class="far fa-heart"></i></span> <i class="far fa-heart"></i>
             <button class="like-click">Like!</button>
             <button class="expand">More</button>
         </div>
@@ -142,9 +165,11 @@
                     <div id="cooking-instructions-modal"></div>
                     <div id="ingredients-box-modal">
                         <h5>Ingredients</h5>
+                        <div class="ingredients-sub-modal"></div>
                     </div>
                     <div id="instructions-box-modal">
                         <h5>Instruction</h5>
+                        <div class="instructions-sub-modal"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
