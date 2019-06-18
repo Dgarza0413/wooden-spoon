@@ -7,6 +7,27 @@ var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
 var limits = ''
 var types = ''
 
+$("#favorites").on("click", function(event) {
+    event.preventDefault();
+
+    console.log("clicked");
+
+    $(this).css("color", "red")
+
+    if($(this).data-status === "non-favorited") {
+        // $(this).css("color", "red");
+        $(this).addClass("heart-clicked")
+        $(this).attr("data-status", "favorited");
+    } 
+
+    if($(this).data-status === "favorited") {
+        // $(this).css("color", "red");
+        $(this).removeClass("heart-clicked")
+        $(this).attr("data-status", "non-favorited");
+    } 
+
+})
+
 $.ajax({
     url: queryURL,
     method: "GET",

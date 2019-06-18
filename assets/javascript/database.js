@@ -28,3 +28,4 @@ database.ref("clickcount").on("value", function (snapshot) {
     clickCounter = snapshot.val().clickCount;
     $(".counter").text(clickCounter);
 })
+
