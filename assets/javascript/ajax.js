@@ -164,13 +164,17 @@ $(document).ready(function () {
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + $(card).attr("recipe-id") + "/information"
         var recipeId = $(card).attr("recipe-id")
         var title = $(card).find(".card-title").text()
-        var titleModal = $(this).response.
+        var titleModal = $(this).response
         var ingredients = $(card).find("recipe-id").val()
         var servingSize = $(card).find(".servings").text()
         var cookingTime = $(card).find(".cooking-time").text()
         console.log($(this).find(".card-title").text())
         console.log(recipeId)
         console.log(card)
+
+        $("#recipe-title-modal").append(title)
+        $("#servings-size-modal").append(servingSize)
+        $("#cooking-time-modal").append(cookingTime)
 
         $.ajax({
             url: queryURL,
@@ -186,6 +190,7 @@ $(document).ready(function () {
             // console.log(response.extendedIngredients)
             // console.log(response.analyzedInstruction)
 
+
             for (var i = 0; i < response.extendedIngredients.length; i++) {
                 // console.log(response.extendedIngredients[i].name)
                 var ingredientsItem = $("<p>");
@@ -196,9 +201,7 @@ $(document).ready(function () {
                 $(".ingredients-sub-modal").append(ingredientsItem)
 
 
-                $("#recipe-title-modal").append(title)
-                $("#servings-size-modal").append(servingSize)
-                $("#cooking-time-modal").append(cookingTime)
+
             }
 
             for (var i = 0; i < response.analyzedInstructions.length; i++) {
@@ -206,12 +209,37 @@ $(document).ready(function () {
                     var instructionsItem = $("<p>");
                     instructionsItem.attr("instructions-item", response.analyzedInstructions[i].steps[j].step)
                     instructionsItem.text(response.analyzedInstructions[i].steps[j].step)
-
-
                     console.log(instructionsItem)
                     $(".instructions-sub-modal").append(instructionsItem)
                 }
             }
+
+            var equipmentArr = [];
+
+            //working progress
+            for (var i = 0; i < response.analyzedInstructions.length; i++) {
+                for (var j = 0; j < response.analyzedInstructions[i].steps.length; j++) {
+                    for (var k = 0; k < response.analyzedInstructions[i].steps[j].equipment.length; k++) {
+                        // for (var l = 0; l < response.analyzedInstructions[i].steps[j].equipment[k].name.length; i++) {
+                        var equipName = response.analyzedInstructions[i].steps[j].equipment[k].name;
+                        console.log(equipName);
+                        if (!equipmentArr.includes(equipName)) {
+                            equipmentArr.push(equipName);
+
+                            console.log(response.analyzedInstructions[i].steps[j].equipment.length)
+                            var cookingWareItem = $("<p>");
+                            var cookingWareName = response.analyzedInstructions[i].steps[j].equipment[k].name
+                            cookingWareItem.attr("cooking-ware", cookingWareName)
+                            cookingWareItem.text(cookingWareName)
+                            $(".cooking-ware-sub-modal").append(response.analyzedInstructions[i].steps[j].equipment[k].name)
+                        }
+
+                        // analyzedInstructions[""0""].steps[""0""].equipment[""0""].name
+                        // }
+                    }
+                }
+            }
+            console.log("equipmentArr", equipmentArr);
         })
     });
 });
