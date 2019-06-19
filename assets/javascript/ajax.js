@@ -1,14 +1,5 @@
 $(document).ready(function () {
-    // This is the ajax page
     console.log("loaded ajax file")
-    // $('.recipes').masonry({
-    //     itemSelector: '.card',
-    //     columnWidth: 160,
-    //     percentPosition: true,
-    //     horizontalOrder: true
-    // });
-
-    //variables needed to pull information from api
     // var searchQueryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue; "&number=2"
     var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
     var limits = ''
@@ -100,13 +91,6 @@ $(document).ready(function () {
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue + "&number=2"
         console.log(searchValue)
 
-        // $('.recipes').masonry({
-        //     itemSelector: '.card',
-        //     columnWidth: 160,
-        //     percentPosition: true,
-        //     horizontalOrder: true
-        // });
-
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -116,12 +100,6 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             console.log(response)
-            // $('.recipes').masonry({
-            //     itemSelector: '.card',
-            //     columnWidth: 160,
-            //     percentPosition: true,
-            //     horizontalOrder: true
-            // });
 
             for (var i = 0; i < response.results.length; i++) {
                 console.log(response.results[i])
@@ -161,6 +139,7 @@ $(document).ready(function () {
                 cardButton.attr("data-toggle", "modal")
                 cardButton.attr("recipe-id", response.results[i].id)
                 cardButton.attr("data-target", "#exampleModalCenter")
+                cardHeartIcon.attr("recipe-id", response.results[i].id)
 
                 //display text
                 cardTitle.text(response.results[i].title)
@@ -277,35 +256,20 @@ $(document).ready(function () {
             }
             console.log("equipmentArr", equipmentArr);
         })
-
-        // $('.recipes').masonry({
-        //     itemSelector: '.card',
-        //     columnWidth: 160,
-        //     percentPosition: true,
-        //     horizontalOrder: true
-        // });
-
     });
 
-    $(document).on("click", ".fa-heart", function () {
-        console.log(this)
-        $(this).toggleClass("fas fa-heart", "far fa-heart")
-        $(this).addClass("fa-heart")
-        console.log($(this))
-        console.log($(this))
-        if ($(this).attr("far")) {
-            console.log("solid")
-        } else if ($(this).attr("fas")) {
-            console.log("ring")
-        }
-    })
-
-    $('.recipes').masonry({
-        itemSelector: '.card',
-        columnWidth: 160,
-        percentPosition: true,
-        horizontalOrder: true
-    });
+    // $(document).on("click", ".fa-heart", function () {
+    //     $(this).toggleClass("fas fa-heart", "far fa-heart")
+    //     $(this).addClass("fa-heart")
+    //     console.log(this)
+    //     console.log($(this).parent())
+    //     console.log($(this))
+    //     // if ($(this).attr("far")) {
+    //     //     console.log("solid")
+    //     // } else if ($(this).attr("fas")) {
+    //     //     console.log("ring")
+    //     // }
+    // })
 });
 
 
