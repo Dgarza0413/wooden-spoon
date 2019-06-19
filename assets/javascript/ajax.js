@@ -1,99 +1,111 @@
 $(document).ready(function () {
     // This is the ajax page
     console.log("loaded ajax file")
+    // $('.recipes').masonry({
+    //     itemSelector: '.card',
+    //     columnWidth: 160,
+    //     percentPosition: true,
+    //     horizontalOrder: true
+    // });
 
     //variables needed to pull information from api
-    // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=2"
     // var searchQueryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue; "&number=2"
     var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
     var limits = ''
     var types = ''
-    // var searchValue = $("input").val()
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET",
-    //     headers: {
-    //         "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    //         "X-RapidAPI-Key": apiKey
-    //     }
-    // }).then(function (response) {
-    //     // console.log(response)
-    //     console.log(response.recipes)
 
-    //     //submit button to take the value of the submit
-    //     generateRecipes()
+    var $recipies = $('.recipes').masonry({
+        itemSelector: '.card',
+        columnWidth: 160,
+        percentPosition: true,
+        horizontalOrder: true
+    });
+    var searchValue = $("input").val()
+    $("#randomize-recipe").on("click", function () {
+        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10"
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "X-RapidAPI-Key": apiKey
+            }
+        }).then(function (response) {
+            // console.log(response)
+            console.log(response.recipes)
 
-    //     function generateRecipes() {
-    //         // this function has to be used to generate the recipes on the page
-    //         for (var i = 0; i < response.recipes.length; i++) {
-    //             console.log(response.recipes[i])
-    //             var card = $("<div>")
-    //             var cardBody = $("<div>")
-    //             var cardTitle = $("<h5>")
-    //             var cardServings = $("<p>")
-    //             var cardCookingMinutes = $("<p>")
-    //             var cardImage = $("<img>")
-    //             var cardButton = $("<button>")
-    //             var cardTimeIcon = $("<i>")
-    //             var cardServingsIcon = $("<i>")
+            //submit button to take the value of the submit
+            generateRecipes()
 
-    //             // adding classes to match bootstrap
-    //             card.addClass("card")
-    //             cardBody.addClass("card-body")
-    //             cardImage.addClass("card-img-top")
-    //             cardTitle.addClass("card-title")
-    //             cardServings.addClass("card-text servings")
-    //             cardCookingMinutes.addClass("card-text cooking-time")
-    //             cardButton.addClass("expand")
-    //             cardTimeIcon.addClass("fas fa-clock")
-    //             cardServingsIcon.addClass("fas fa-utensils")
+            function generateRecipes() {
+                // this function has to be used to generate the recipes on the page
+                for (var i = 0; i < response.recipes.length; i++) {
+                    console.log(response.recipes[i])
+                    var card = $("<div>")
+                    var cardBody = $("<div>")
+                    var cardTitle = $("<h5>")
+                    var cardServings = $("<p>")
+                    var cardCookingMinutes = $("<p>")
+                    var cardImage = $("<img>")
+                    var cardButton = $("<button>")
+                    var cardTimeIcon = $("<i>")
+                    var cardServingsIcon = $("<i>")
 
-    //             // attr section
-    //             card.css("width", "18rem")
-    //             card.attr("recipe-id", response.recipes[i].id)
-    //             card.attr("array-num", [i])
-    //             cardImage.attr("src", response.recipes[i].image)
-    //             cardTitle.attr("title", response.recipes[i].title)
+                    // adding classes to match bootstrap
+                    card.addClass("card")
+                    cardBody.addClass("card-body")
+                    cardImage.addClass("card-img-top")
+                    cardTitle.addClass("card-title")
+                    cardServings.addClass("card-text servings")
+                    cardCookingMinutes.addClass("card-text cooking-time")
+                    cardButton.addClass("expand")
+                    cardTimeIcon.addClass("fas fa-clock")
+                    cardServingsIcon.addClass("fas fa-utensils")
 
-    //             //display text
-    //             cardTitle.text(response.recipes[i].title)
-    //             cardServings.text(" Serving Size: " + response.recipes[i].servings)
-    //             cardCookingMinutes.text(" Cooking Time: " + response.recipes[i].readyInMinutes + " min")
-    //             cardButton.text("More")
+                    // attr section
+                    card.css("width", "18rem")
+                    card.attr("recipe-id", response.recipes[i].id)
+                    card.attr("array-num", [i])
+                    cardImage.attr("src", response.recipes[i].image)
+                    cardTitle.attr("title", response.recipes[i].title)
 
-    //             // append into card structure
-    //             $(".recipes").append(card)
-    //             card.append(cardImage)
-    //             card.append(cardBody)
-    //             card.append(cardButton)
-    //             cardBody.append(cardTitle)
-    //             cardBody.append(cardServings)
-    //             cardServings.prepend(cardServingsIcon)
-    //             cardBody.append(cardCookingMinutes)
-    //             cardCookingMinutes.prepend(cardTimeIcon)
-    //         }
-    //     }
-    // });
+                    //display text
+                    cardTitle.text(response.recipes[i].title)
+                    cardServings.text(" Serving Size: " + response.recipes[i].servings)
+                    cardCookingMinutes.text(" Cooking Time: " + response.recipes[i].readyInMinutes + " min")
+                    cardButton.text("More")
 
-    $("#like-button").on("click", function () {
-        if ($("#like-button").attr("far")) {
-            true
-            console.log(true)
-            $("#like-button").addClass("fas")
-            $("#like-button").removeClass("far")
-        } else if ($("#like-button").attr("fas")) {
-            false
-            console.log(false)
-            $("#like-button").removeClass("far")
-            $("#like-button").addClass("fas")
-        }
+                    // append into card structure
+                    // $(".recipes").append(card)
+                    card.append(cardImage)
+                    card.append(cardBody)
+                    card.append(cardButton)
+                    cardBody.append(cardTitle)
+                    cardBody.append(cardServings)
+                    cardServings.prepend(cardServingsIcon)
+                    cardBody.append(cardCookingMinutes)
+                    cardCookingMinutes.prepend(cardTimeIcon)
+
+                    $recipies.append(card).masonry('appended', card)
+                }
+            }
+        });
     })
+
+
 
     $("#submit-value").on("click", function (event) {
         event.preventDefault();
         var searchValue = $("#input").val().trim();
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue + "&number=2"
         console.log(searchValue)
+
+        // $('.recipes').masonry({
+        //     itemSelector: '.card',
+        //     columnWidth: 160,
+        //     percentPosition: true,
+        //     horizontalOrder: true
+        // });
 
         $.ajax({
             url: queryURL,
@@ -104,6 +116,12 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             console.log(response)
+            // $('.recipes').masonry({
+            //     itemSelector: '.card',
+            //     columnWidth: 160,
+            //     percentPosition: true,
+            //     horizontalOrder: true
+            // });
 
             for (var i = 0; i < response.results.length; i++) {
                 console.log(response.results[i])
@@ -151,7 +169,7 @@ $(document).ready(function () {
                 cardButton.text("More")
 
                 // append into card structure
-                $(".recipes").append(card)
+                // $(".recipes").append(card)
                 // card.append(cardImage)
                 card.append(cardImageContainer)
                 card.append(cardBody)
@@ -163,6 +181,8 @@ $(document).ready(function () {
                 cardServings.prepend(cardServingsIcon)
                 cardBody.append(cardCookingMinutes)
                 cardCookingMinutes.prepend(cardTimeIcon)
+
+                $recipies.append(card).masonry('appended', card);
             }
         })
     })
@@ -257,6 +277,34 @@ $(document).ready(function () {
             }
             console.log("equipmentArr", equipmentArr);
         })
+
+        // $('.recipes').masonry({
+        //     itemSelector: '.card',
+        //     columnWidth: 160,
+        //     percentPosition: true,
+        //     horizontalOrder: true
+        // });
+
+    });
+
+    $(document).on("click", ".fa-heart", function () {
+        console.log(this)
+        $(this).toggleClass("fas fa-heart", "far fa-heart")
+        $(this).addClass("fa-heart")
+        console.log($(this))
+        console.log($(this))
+        if ($(this).attr("far")) {
+            console.log("solid")
+        } else if ($(this).attr("fas")) {
+            console.log("ring")
+        }
+    })
+
+    $('.recipes').masonry({
+        itemSelector: '.card',
+        columnWidth: 160,
+        percentPosition: true,
+        horizontalOrder: true
     });
 });
 
