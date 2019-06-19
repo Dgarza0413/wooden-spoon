@@ -75,6 +75,19 @@ $(document).ready(function () {
     //     }
     // });
 
+    $("#like-button").on("click", function () {
+        if ($("#like-button").attr("far")) {
+            true
+            console.log(true)
+            $("#like-button").addClass("fas")
+            $("#like-button").removeClass("far")
+        } else if ($("#like-button").attr("fas")) {
+            false
+            console.log(false)
+            $("#like-button").removeClass("far")
+            $("#like-button").addClass("fas")
+        }
+    })
 
     $("#submit-value").on("click", function (event) {
         event.preventDefault();
@@ -151,25 +164,14 @@ $(document).ready(function () {
                 cardBody.append(cardCookingMinutes)
                 cardCookingMinutes.prepend(cardTimeIcon)
             }
-
-
         })
     })
 
     //on click function that calls that infomation on the page
     $(document).on("click", ".expand", function () {
-
-
         var card = this
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + $(card).attr("recipe-id") + "/information"
-        var recipeId = $(card).attr("recipe-id")
-        var title = $(card).find(".card-title").text()
-        var titleModal = $(this).response.
-        var ingredients = $(card).find("recipe-id").val()
-        var servingSize = $(card).find(".servings").text()
-        var cookingTime = $(card).find(".cooking-time").text()
         console.log($(this).find(".card-title").text())
-        console.log(recipeId)
         console.log(card)
 
         $.ajax({
@@ -180,25 +182,47 @@ $(document).ready(function () {
                 "X-RapidAPI-Key": apiKey
             }
         }).then(function (response) {
+            var imgDisplay = $("<img>")
+            imgDisplay.attr("src", response.image)
             $(".ingredients-sub-modal").empty()
             $(".instructions-sub-modal").empty()
+            $(".cooking-ware-sub-modal").empty()
+            $("#recipe-title-modal").empty()
+            $("#cooking-time-modal").empty()
+            $("#servings-size-modal").empty()
+            $("#img-resize").empty()
+
+            $("#recipe-title-modal").append(response.title)
+            $("#servings-size-modal").append("<h5>Serving Size: </h5>" + response.servings)
+            $("#cooking-time-modal").append("<h5>Cooking & Prep time: </h5>" + response.readyInMinutes + "min")
+            $("#img-resize").append(imgDisplay)
+
             console.log(response)
-            // console.log(response.extendedIngredients)
-            // console.log(response.analyzedInstruction)
 
             for (var i = 0; i < response.extendedIngredients.length; i++) {
-                // console.log(response.extendedIngredients[i].name)
                 var ingredientsItem = $("<p>");
+                var ingredientsAmount = $("<span>")
+                var ingredientsUnit = $("<span>")
+                var ingredientsContainer = $("<div>")
+                var measurementsContainer = $("<span>")
+
+                ingredientsContainer.addClass("ingredients-container")
+                measurementsContainer.addClass("measurements-container")
 
                 ingredientsItem.attr("ingredient-name", response.extendedIngredients[i].name)
                 ingredientsItem.text(response.extendedIngredients[i].name)
 
-                $(".ingredients-sub-modal").append(ingredientsItem)
+                ingredientsAmount.attr("ingredient-amount", response.extendedIngredients[i].amount)
+                ingredientsAmount.text(response.extendedIngredients[i].amount)
 
+                ingredientsUnit.attr("ingredient-unit", response.extendedIngredients[i].unit)
+                ingredientsUnit.text(response.extendedIngredients[i].unit)
 
-                $("#recipe-title-modal").append(title)
-                $("#servings-size-modal").append(servingSize)
-                $("#cooking-time-modal").append(cookingTime)
+                $(".ingredients-sub-modal").append(ingredientsContainer)
+                ingredientsContainer.append(ingredientsItem)
+                ingredientsContainer.append(measurementsContainer)
+                measurementsContainer.append(ingredientsAmount)
+                measurementsContainer.append(ingredientsUnit)
             }
 
             for (var i = 0; i < response.analyzedInstructions.length; i++) {
@@ -206,12 +230,32 @@ $(document).ready(function () {
                     var instructionsItem = $("<p>");
                     instructionsItem.attr("instructions-item", response.analyzedInstructions[i].steps[j].step)
                     instructionsItem.text(response.analyzedInstructions[i].steps[j].step)
-
-
                     console.log(instructionsItem)
                     $(".instructions-sub-modal").append(instructionsItem)
                 }
             }
+
+            var equipmentArr = [];
+
+            //working progress
+            for (var i = 0; i < response.analyzedInstructions.length; i++) {
+                for (var j = 0; j < response.analyzedInstructions[i].steps.length; j++) {
+                    for (var k = 0; k < response.analyzedInstructions[i].steps[j].equipment.length; k++) {
+                        var equipName = response.analyzedInstructions[i].steps[j].equipment[k].name;
+                        console.log(equipName);
+                        if (!equipmentArr.includes(equipName)) {
+                            equipmentArr.push(equipName);
+                            console.log(response.analyzedInstructions[i].steps[j].equipment.length)
+                            var cookingWareItem = $("<p>");
+                            var cookingWareName = response.analyzedInstructions[i].steps[j].equipment[k].name
+                            cookingWareItem.attr("cooking-ware", cookingWareName)
+                            cookingWareItem.text(cookingWareName)
+                            $(".cooking-ware-sub-modal").append(cookingWareItem)
+                        }
+                    }
+                }
+            }
+            console.log("equipmentArr", equipmentArr);
         })
     });
     var timesClicked= 0;
