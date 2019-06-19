@@ -99,14 +99,13 @@ body {
     font-family: 'Indie Flower', cursive;
 }
 
-
 .w-100 {
     border-radius: 15px;
 }
 
 .breakLine {
     background-color:#F9DEC9;
-    max-width: 980px;
+    max-width: 90vw;
 }
 .recipes {
     max-width: 980px;

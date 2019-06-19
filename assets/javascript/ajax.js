@@ -75,6 +75,19 @@ $(document).ready(function () {
     //     }
     // });
 
+    $("#like-button").on("click", function () {
+        if ($("#like-button").attr("far")) {
+            true
+            console.log(true)
+            $("#like-button").addClass("fas")
+            $("#like-button").removeClass("far")
+        } else if ($("#like-button").attr("fas")) {
+            false
+            console.log(false)
+            $("#like-button").removeClass("far")
+            $("#like-button").addClass("fas")
+        }
+    })
 
     $("#submit-value").on("click", function (event) {
         event.preventDefault();
@@ -176,6 +189,7 @@ $(document).ready(function () {
             $(".cooking-ware-sub-modal").empty()
             $("#recipe-title-modal").empty()
             $("#cooking-time-modal").empty()
+            $("#servings-size-modal").empty()
             $("#img-resize").empty()
 
             $("#recipe-title-modal").append(response.title)
@@ -186,7 +200,6 @@ $(document).ready(function () {
             console.log(response)
 
             for (var i = 0; i < response.extendedIngredients.length; i++) {
-                // console.log(response.extendedIngredients[i].name)
                 var ingredientsItem = $("<p>");
                 var ingredientsAmount = $("<span>")
                 var ingredientsUnit = $("<span>")
@@ -206,7 +219,6 @@ $(document).ready(function () {
                 ingredientsUnit.text(response.extendedIngredients[i].unit)
 
                 $(".ingredients-sub-modal").append(ingredientsContainer)
-
                 ingredientsContainer.append(ingredientsItem)
                 ingredientsContainer.append(measurementsContainer)
                 measurementsContainer.append(ingredientsAmount)
