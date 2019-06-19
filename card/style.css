@@ -1,67 +1,3 @@
-.containerText {
-    width:50%;
-    height:100px;
-    border:3px;
-    border-radius: 5px;
-}
-.click {
-    color:black;
-    font-size:60px;
-}
-.click:hover {
-    color:blue;
-}
-.click:focus {
-    color:blue;
-}
-.counter {
-    font-size: 60px;
-}
-
-/* modal */
-.background {
-    width: 550px;
-    height:400px;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: url("background.jpg") no-repeat center center fixed; 
-    background-size: cover;
-
-}
-.model {
-    /* width: 540px;
-    height: 390px;
-    padding: 5px; */
-    margin: 5px;
-    
-    position: relative;
-    top: 5px;
-}
-.model img{
-    width: 50%;
-    height: 50%;
-    float: left;
-}
-.model h1{
-    /* position: absolute;
-        top: 0;
-        right: 5px; */
-    float: left;
-    text-align: left;
-    background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    color: green;
-}
-.model p{
-    clear: both;
-    background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    color: green;
-}
-
-/* ========= */
-
 body {
     background-color: #685044!important;
 }
@@ -99,24 +35,26 @@ body {
     font-family: 'Indie Flower', cursive;
 }
 
+
 .w-100 {
     border-radius: 15px;
 }
 
 .breakLine {
     background-color:#F9DEC9;
-    max-width: 90vw;
+    max-width: 980px;
 }
-.recipes {
+/* .grid {
     max-width: 980px;
     margin: 0 auto;
 
-}
+} */
 
 .flip-card {
     background-color: transparent;
     /* width: 300px;
     height: 300px; */
+    height:fit-content;
     border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
@@ -156,6 +94,10 @@ body {
     color: white;
     transform: rotateY(180deg);
   }
+
+.grid-item {
+    width:300px;
+}
   
 
 
@@ -166,12 +108,3 @@ pale cerulean: #99B2DD
 granny smith apple: #A2E8A3
 medium taupe: #685044
 */
-
-/* ========== */
-
-.modal{
-    background-color: transparent;
-    position: center;
-    
-    
-}
