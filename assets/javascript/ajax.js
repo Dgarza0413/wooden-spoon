@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+
     console.log("loaded ajax file")
     // var searchQueryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue; "&number=2"
     var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
@@ -11,6 +13,7 @@ $(document).ready(function () {
         percentPosition: true,
         horizontalOrder: true
     });
+
     var searchValue = $("input").val()
     $("#randomize-recipe").on("click", function () {
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10"
@@ -88,7 +91,7 @@ $(document).ready(function () {
     $("#submit-value").on("click", function (event) {
         event.preventDefault();
         var searchValue = $("#input").val().trim();
-        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue + "&number=2"
+        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue + "&number=5&offset=5"
         console.log(searchValue)
 
         $.ajax({
@@ -270,6 +273,7 @@ $(document).ready(function () {
     //     //     console.log("ring")
     //     // }
     // })
+
 });
 
 
