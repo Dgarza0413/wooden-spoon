@@ -5,107 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Wooden Spoon</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
     <script src="https://kit.fontawesome.com/3b074a4195.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
-
-    <style>
-        .flip-card {
-            width: 300px;
-            height: 300px;
-        }
-
-        .model {
-            display: none;
-        }
-
-        .img-container {
-            position: relative;
-        }
-
-        .fa-heart {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            color: red;
-        }
-
-        /* .fas-heart {
-            display: none;
-        } */
-
-        .ingredients-sub-modal {
-            column-count: 3;
-        }
-
-        /* .ingredients-sub-modal span {
-            margin: 0px 5px;
-        } */
-        .measurements-container {
-            margin: 0px 5px;
-            font-style: italic;
-        }
-
-        .ingredients-container {
-            display: flex;
-        }
-
-        .ingredients-container p {
-            font-weight: 700;
-        }
-
-        .cooking-ware-sub-modal {
-            column-count: 3;
-        }
-
-        #img-resize {
-            text-align: center;
-        }
-
-        #img-resize img {
-            width: 100%;
-        }
-
-        #background-image {
-            /* background-image: url(https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=2857&q=80); */
-            /* background-image: url(https://images.unsplash.com/photo-1514598466916-4f5ca5d2d7ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80); */
-            /* background-image: url(https://images.unsplash.com/photo-1556178676-00b901fb09b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2765&q=80); */
-            background-image: url(https://images.unsplash.com/photo-1556910101-a533e487de15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);
-            height: 70vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        #website-title {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            font-family: 'Indie Flower', cursive;
-            font-size: 70px;
-            font-weight: 800;
-        }
-
-        .section-bar {
-            margin: 0% 5%;
-            text-align: right;
-        }
-
-        .card-sizer {
-            width: 18rem;
-        }
-    </style>
 </head>
 
 <body>
@@ -120,7 +32,7 @@
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Search By Cusine
+                        Search By Cuisine
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Checkbox</a>
@@ -147,8 +59,8 @@
                             aria-label="Search">
                         <button id="submit-value" class="btn btn-outline-success my-2 my-sm-0"
                             type="submit">Search</button>
-                        <button id="randomize-recipe" class="btn btn-outline-info my-2 my-sm-0"
-                            type="submit">randomize</button>
+                        <!-- <button id="randomize-recipe" class="btn btn-outline-info my-2 my-sm-0"
+                            type="submit">randomize</button> -->
                     </form>
                 </div>
             </nav>
@@ -157,7 +69,11 @@
     <br>
     <h3 class="section-bar">Favorites</h3>
     <hr class="breakLine">
-    <div id="favorites-container"></div>
+    <div id="favorites-container">
+        <div class="owl-carousel owl-theme"></div>
+
+    </div>
+
     <h3 class="section-bar">Search</h3>
     <hr class="breakLine">
 
@@ -234,6 +150,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
     <script src="assets/javascript/ajax.js"></script>
     <script src="assets/javascript/database.js"></script>
+    <script src="assets/javascript/owl.carousel.min.js"></script>
 
 </body>
 

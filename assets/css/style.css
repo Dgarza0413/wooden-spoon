@@ -108,8 +108,8 @@ body {
     max-width: 90vw;
 }
 .recipes {
-    max-width: 980px;
-    margin: 0 auto;
+    max-width: 95vw;
+    margin: 0% 5%;
 }
 
 .flip-card {
@@ -173,4 +173,87 @@ medium taupe: #685044
     position: center;
     
     
+}
+
+
+.flip-card {
+    width: 300px;
+    height: 300px;
+}
+
+.model {
+    display: none;
+}
+
+.img-container {
+    position: relative;
+}
+
+.fa-heart {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: red;
+}
+
+.ingredients-sub-modal {
+    column-count: 3;
+}
+
+.measurements-container {
+    margin: 0px 5px;
+    font-style: italic;
+}
+
+.ingredients-container {
+    display: flex;
+}
+
+.ingredients-container p {
+    font-weight: 700;
+}
+
+.cooking-ware-sub-modal {
+    column-count: 3;
+}
+
+#img-resize {
+    text-align: center;
+}
+
+#img-resize img {
+    width: 100%;
+}
+
+#background-image {
+    background-image: url(https://images.unsplash.com/photo-1556910101-a533e487de15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);
+    height: 70vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#website-title {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 70px;
+    font-weight: 800;
+    padding: 10px 5px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.section-bar {
+    margin: 0% 5%;
+    text-align: right;
+}
+
+.card-sizer {
+    width: 18rem;
 }
