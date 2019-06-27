@@ -42,6 +42,7 @@ $(document).on("click", ".fa-heart", function () {
         console.log(this)
         var rootNode = database.ref().key
         console.log(rootNode)
+        database.ref().remove()
         likeButton = false;
     }
     console.log(favorite);

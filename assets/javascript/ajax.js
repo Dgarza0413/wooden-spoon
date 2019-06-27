@@ -9,8 +9,6 @@ $(document).ready(function () {
 
     var $recipies = $('.recipes').masonry({
         itemSelector: '.card',
-        columnWidth: 160,
-        percentPosition: true,
         horizontalOrder: true
     });
 
@@ -30,6 +28,7 @@ $(document).ready(function () {
 
             //submit button to take the value of the submit
             generateRecipes()
+
 
             function generateRecipes() {
                 // this function has to be used to generate the recipes on the page
@@ -80,7 +79,11 @@ $(document).ready(function () {
                     cardBody.append(cardCookingMinutes)
                     cardCookingMinutes.prepend(cardTimeIcon)
 
-                    $recipies.append(card).masonry('appended', card)
+                    // $recipies.imagesLoaded()(function () {
+                    //     // $recipies.append(card).masonry('appended', card)
+                    //     $recipies.append(card).masonry('appended', card)
+                    //     // msnry.appended(card)
+                    // })
                 }
             }
         });
@@ -89,6 +92,12 @@ $(document).ready(function () {
 
 
     $("#submit-value").on("click", function (event) {
+        // var $recipies = $('.recipes').masonry({
+        //     itemSelector: '.card',
+        //     horizontalOrder: true
+        // });
+
+
         event.preventDefault();
         var searchValue = $("#input").val().trim();
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue + "&number=5&offset=5"
@@ -164,7 +173,11 @@ $(document).ready(function () {
                 cardBody.append(cardCookingMinutes)
                 cardCookingMinutes.prepend(cardTimeIcon)
 
-                $recipies.append(card).masonry('appended', card);
+
+                $recipies.append(card).masonry('appended', card).masonry()
+                $recipies.imagesLoaded().progress(function () {
+                    $recipies.masonry()
+                })
             }
         })
     })
@@ -260,20 +273,6 @@ $(document).ready(function () {
             console.log("equipmentArr", equipmentArr);
         })
     });
-
-    // $(document).on("click", ".fa-heart", function () {
-    //     $(this).toggleClass("fas fa-heart", "far fa-heart")
-    //     $(this).addClass("fa-heart")
-    //     console.log(this)
-    //     console.log($(this).parent())
-    //     console.log($(this))
-    //     // if ($(this).attr("far")) {
-    //     //     console.log("solid")
-    //     // } else if ($(this).attr("fas")) {
-    //     //     console.log("ring")
-    //     // }
-    // })
-
 });
 
 
