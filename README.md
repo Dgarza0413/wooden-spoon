@@ -15,27 +15,13 @@ At this point in the course, we have an understanding of enough tech to produce 
 notable skills are jquery, javascript, ajax, firebase (database), html, css, and git
 
 1. What is agile software development?
-* a determined system that places emphasis on team interactions that focus on planning, analysis, design, implementation, testing, and maintenance.
+    * a determined system that places emphasis on team interactions that focus on planning, analysis, design, implementation, testing, and maintenance.
 
 2. What is MVP?
-* Is a minimal viable product that satisfies the bare minimum for a product to complete its intended function.
+    * Is a minimal viable product that satisfies the bare minimum for a product to complete its intended function.
 
 3. Handling merge conflicts.
-* merge conflicts are typically handled in group situations that may have the same conflict but different approaches to the issue at hand that require a consensus of what to accept and reject.
-
-
-## resources review
-
-### API
-* Recipes
-* ingredients
-* google graphs?
-
-### Frameworks/Libraries
-* Bootstrap
-* Font Awesome
-* Masonry.js
-
+    * merge conflicts are typically handled in group situations that may have the same conflict but different approaches to the issue at hand that require a consensus of what to accept and reject.
 
 # about index.html and frontend
 Front end (components)
@@ -48,3 +34,18 @@ Modal - will list out what recipe has been selected as well as additional inform
 Back end (features)
 Firebase - our storage capacity
 Ajax apis - our calling of apis
+
+
+## resources review
+### API
+* Recipes
+* ingredients
+* google graphs?
+
+### Frameworks/Libraries
+* Bootstrap
+* Font Awesome
+* Masonry.js
+
+
+
