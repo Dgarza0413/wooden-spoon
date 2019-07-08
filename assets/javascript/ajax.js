@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     console.log("loaded ajax file")
     // var searchQueryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + searchValue; "&number=2"
     var apiKey = "46a4bca137msh8d35c096a6b18f1p114dfdjsn060845846032"
@@ -28,7 +27,6 @@ $(document).ready(function () {
 
             //submit button to take the value of the submit
             generateRecipes()
-
 
             function generateRecipes() {
                 // this function has to be used to generate the recipes on the page
@@ -79,24 +77,12 @@ $(document).ready(function () {
                     cardBody.append(cardCookingMinutes)
                     cardCookingMinutes.prepend(cardTimeIcon)
 
-                    // $recipies.imagesLoaded()(function () {
-                    //     // $recipies.append(card).masonry('appended', card)
-                    //     $recipies.append(card).masonry('appended', card)
-                    //     // msnry.appended(card)
-                    // })
                 }
             }
         });
     })
 
-
-
     $("#submit-value").on("click", function (event) {
-        // var $recipies = $('.recipes').masonry({
-        //     itemSelector: '.card',
-        //     horizontalOrder: true
-        // });
-
 
         event.preventDefault();
         var searchValue = $("#input").val().trim();

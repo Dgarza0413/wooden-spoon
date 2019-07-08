@@ -1,16 +1,37 @@
 # wooden-spoon
 
-Team Members
-Dev, Joseph, Luis, David
+### Team Members
+1. Dev
+2. Joseph
+3. Luis 
+4. David
 
-Title
-Wooden spoon - where delicious meets utensil
-Synopsis 
-This app will utilize apis that include recipes for reference and comments, that maybe subject to change, as well as the ingredients used within the recipe. A user can like, view and comment on each recipe. We will attempt to use graphs to display a total nutrition graph or chart per meal or recipe. Other features will include filters for diet types or nationality.
+# Synopsis
+This group project utilizes a javascript and firebase technology to view and interact with recipes utilizing an api system created by spoonacular
 
-Apis used
-Recipes api, ingredients api (both are provided from spoonacular) and google graphs. api addition are subject to change upon the change in scope.
+# concept review/questions
+At this point in the course, we have an understanding of enough tech to produce a functional product although not as scalable but can be marketable.
 
+notable skills are jquery, javascript, ajax, firebase (database), html, css, and git
+
+1. What is agile software development?
+* a determined system that places emphasis on team interactions that focus on planning, analysis, design, implementation, testing, and maintenance.
+
+2. What is MVP?
+* Is a minimal viable product that satisfies the bare minimum for a product to complete its intended function.
+
+3. Handling merge conflicts.
+* merge conflicts are typically handled in group situations that may have the same conflict but different approaches to the issue at hand that require a consensus of what to accept and reject.
+
+
+## resources review
+
+### API
+* Recipes
+* ingredients
+* google graphs?
+
+# about index.html
 Front end (components)
 Navbar - to add dropdowns that include diet types, nationality (if api can be found)
 Carousel - to display featured apps and favorite apps

@@ -48,7 +48,6 @@ $(document).on("click", ".fa-heart", function () {
     console.log(favorite);
     console.log(likeButton);
     console.log(recipeId)
-    // })
 })
 
 database.ref().on("child_added", function (snapshot) {
@@ -75,7 +74,7 @@ database.ref().on("child_added", function (snapshot) {
         var cardButton = $("<button>")
         var cardTimeIcon = $("<i>")
         var cardServingsIcon = $("<i>")
-        // var cardHeartIcon = $("<i>")
+        var cardHeartIcon = $("<i>")
 
         // adding classes to match bootstrap
         card.addClass("card")
@@ -90,18 +89,18 @@ database.ref().on("child_added", function (snapshot) {
         // Icons from font awesome
         cardTimeIcon.addClass("fas fa-clock")
         cardServingsIcon.addClass("fas fa-utensils")
-        // cardHeartIcon.addClass("far fa-heart fa-2x")
+        cardHeartIcon.addClass("far fa-heart fa-2x")
 
         // attr section
         card.css("width", "18rem")
         card.attr("recipe-id", response.title)
-        // card.attr("array-num", [i])
+        card.attr("array-num", [i])
         cardImage.attr("src", response.image)
-        // cardTitle.attr("title", response.results[i].title)
-        // cardButton.attr("data-toggle", "modal")
+        cardTitle.attr("title", response.results[i].title)
+        cardButton.attr("data-toggle", "modal")
         cardButton.attr("recipe-id", response.id)
-        // cardButton.attr("data-target", "#exampleModalCenter")
-        // cardHeartIcon.attr("recipe-id", response.results[i].id)
+        cardButton.attr("data-target", "#exampleModalCenter")
+        cardHeartIcon.attr("recipe-id", response.results[i].id)
 
         //display text
         cardTitle.text(response.title)
@@ -117,7 +116,7 @@ database.ref().on("child_added", function (snapshot) {
         card.append(cardBody)
         card.append(cardButton)
         cardImageContainer.append(cardImage)
-        // cardImageContainer.append(cardHeartIcon)
+        cardImageContainer.append(cardHeartIcon)
         cardBody.append(cardTitle)
         cardBody.append(cardServings)
         cardServings.prepend(cardServingsIcon)
