@@ -31,18 +31,20 @@ notable skills are jquery, javascript, ajax, firebase (database), html, css, and
 * ingredients
 * google graphs?
 
-# about index.html
+### Frameworks/Libraries
+* Bootstrap
+* Font Awesome
+* Masonry.js
+
+
+# about index.html and frontend
 Front end (components)
 Navbar - to add dropdowns that include diet types, nationality (if api can be found)
 Carousel - to display featured apps and favorite apps
 Landing - to list out random apps based on filter
 Modal - will list out what recipe has been selected as well as additional information
 
-Frameworks included
-Bootstrap
-Font awesome
-masonry.js
-
+# about ajax.js and backend
 Back end (features)
 Firebase - our storage capacity
 Ajax apis - our calling of apis
