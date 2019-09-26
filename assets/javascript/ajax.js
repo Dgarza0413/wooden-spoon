@@ -10,16 +10,15 @@ $(document).ready(function () {
         itemSelector: '.card',
         horizontalOrder: true
     });
-
+    var key = "SzdHMkwvZDdZVTZUMGpYckFlOVNFUT09"
     var searchValue = $("input").val()
     $("#randomize-recipe").on("click", function () {
-        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10"
+        var queryURL = `https://trefle.io/api/kingdoms/${key}`
         $.ajax({
             url: queryURL,
             method: "GET",
             headers: {
-                "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "X-RapidAPI-Key": apiKey
+                "Authorization": "Bearer" + key
             }
         }).then(function (response) {
             // console.log(response)
