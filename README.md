@@ -47,5 +47,8 @@ Ajax apis - our calling of apis
 * Font Awesome
 * Masonry.js
 
+# updates
+adding react and firebase features to application 10/6/2019
+
 
 
