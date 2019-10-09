@@ -1,5 +1,6 @@
 import React from 'react';
-
+import AuthUserContext from './context';
+import withAuthentication from './withAuthentication';
 import { FirebaseContext } from '../Firebase';
 
 const Session = () => (
@@ -13,3 +14,5 @@ const Session = () => (
 
 )
 export default Session
+
+export { AuthUserContext, withAuthentication };
