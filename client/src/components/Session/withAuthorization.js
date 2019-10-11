@@ -8,7 +8,7 @@ import * as ROUTES from '../../constants/routes';
 
 const withAuthorization = condition => Component => {
     class WithAuthorization extends React.Component {
-        conponentDidMount() {
+        componentDidMount() {
             this.listener = this.props.firebase.auth.onAuthStateChanged(
                 authUser => {
                     if (!condition(authUser)) {
