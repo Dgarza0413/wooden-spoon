@@ -34,7 +34,7 @@ Modal - will list out what recipe has been selected as well as additional inform
 Back end (features)
 Firebase - our storage capacity
 Ajax apis - our calling of apis
-
+express and fire base hosting
 
 ## resources review
 ### API
