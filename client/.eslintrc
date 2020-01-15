@@ -1,0 +1,41 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "browser": true,
+        "jest": true
+    },
+    "plugins": [
+        "import",
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "eqeqeq": "error",
+        "func-style": "error",
+        "no-console": "error",
+        "no-eval": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": 0
+    },
+    "globals": {
+        "React": "writable"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}

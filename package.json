@@ -1,0 +1,28 @@
+{
+  "name": "wooden-spoon",
+  "version": "1.0.0",
+  "description": "### Team Members 1. Dev 2. Joseph 3. Luis  4. David",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/Dgarza0413/wooden-spoon.git",
+  "author": "David Garza <dgarza0413@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dgarza0413/wooden-spoon/issues"
+  },
+  "homepage": "https://github.com/Dgarza0413/wooden-spoon#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "eslint-plugin-import": "^2.20.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  }
+}
