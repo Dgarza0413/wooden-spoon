@@ -7,6 +7,12 @@ class MyApp extends App {
     return (
       <Layout>
         <Component />
+        <style jsx>{`
+          body {
+            margin: 0;
+            padding: 0;
+          }
+        `}</style>
       </Layout>
     );
   }
